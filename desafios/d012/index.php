@@ -1,4 +1,4 @@
-]<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <?php 
+        $totalSegundos = $_GET["totalSegundos"] ?? 0;
+    ?>
     <main>
         <h2>Calculadora de Tempo</h2>
         <form action="<?= $_SERVER['PHP_SELF']?>" method="get">
@@ -20,7 +23,6 @@
     <section>
         <h2>Totalizando tudo</h2>
         <?php 
-            $totalSegundos = $_GET["totalSegundos"] ?? 0;
             $semanas = floor($totalSegundos / 604800);
             $dias = floor(($totalSegundos - ($semanas * 604800))/86400);
             $horas = floor(($totalSegundos - ($semanas * 604800) - ($dias * 86400))/3600);
@@ -35,7 +37,6 @@
             echo "<li>$minutos minutos</li>";
             echo "<li>$segundos segundos</li>";
             echo "</ul>";
-
         ?>
     </section>
 </body>

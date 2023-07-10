@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <?php 
+        $anoNascimento = $_GET["anoNascimento"] ?? 2001;
+        $anoAtual = date("Y");
+        $anoAlvo = $_GET["anoAlvo"]?? $anoAtual;
+    ?>
     <main>
         <h1>Calculando a sua idade</h1>
         <form action="<?= $_SERVER['PHP_SELF']?>" method="get" id="formulario" onsubmit="return validarFormulario()">
@@ -23,10 +28,6 @@
     <section>
         <h2>Resultado</h2>
         <?php 
-            $anoNascimento = $_GET["anoNascimento"] ?? 2001;
-            $anoAtual = date("Y");
-            $anoAlvo = $_GET["anoAlvo"]?? $anoAtual;
-
             echo "<p>Quem nasceu em $anoNascimento vai ter <strong>" . $anoAlvo - $anoNascimento ." anos</strong> em $anoAlvo !</p>";
 
         ?>

@@ -14,6 +14,10 @@
 </style>
 
 <body>
+    <?php 
+        $precoDoProduto = $_GET["precoDoProduto"]??0;
+        $percentual = $_GET["percentual"]?? 0;
+    ?>
     <main>
         <h1>Reajustador de Preços</h1>
         <form action="<?= $_SERVER['PHP_SELF']?>" method="get" id="formulario" onsubmit="return validarFormulario()">
@@ -30,8 +34,6 @@
     <section>
         <h2>Resultado do Reajuste</h2>
         <?php
-            $precoDoProduto = $_GET["precoDoProduto"]??0;
-            $percentual = $_GET["percentual"]?? 0;
             $precoFinal = $precoDoProduto * $percentual + $precoDoProduto;
             $padrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
 

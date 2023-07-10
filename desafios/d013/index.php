@@ -1,9 +1,9 @@
-]<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio 12</title>
+    <title>Desafio 13</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <section>
         <?php 
             $valorParaSaque = $_GET["valorParaSaque"] ?? 0;
-            $notasDe100 = floor($valorParaSaque / 100);
+            $notasDe100 = intdiv($valorParaSaque , 100);
             $notasDe50 = floor(($valorParaSaque - ($notasDe100 * 100))/50);
             $notasDe10 = floor(($valorParaSaque - ($notasDe100 * 100) - ($notasDe50 * 50))/10);
             $notasDe5 = floor(($valorParaSaque - ($notasDe100 * 100) - ($notasDe50 * 50) - ($notasDe10 * 10))/5);

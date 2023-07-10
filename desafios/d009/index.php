@@ -1,4 +1,4 @@
-]<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <?php 
+        $valor1 = $_REQUEST["valor1"] ?? 0;
+        $peso1 = $_REQUEST["peso1"] ?? 1;
+        $valor2 = $_REQUEST["valor2"] ?? 0;
+        $peso2 = $_REQUEST["peso2"] ?? 1;
+    ?>
     <main>
         <h1>Médias Aritméticas</h1>
         <form action="<?= $_SERVER['PHP_SELF']?>" method="get">
@@ -14,13 +20,13 @@
             <input type="number" name="valor1" id="valor1" value="<?=$valor1?>" required>
 
             <label for="peso1">1º peso: </label>
-            <input type="number" name="peso1" id="peso1" value="<?=$peso1?>" required>
+            <input type="number" name="peso1" id="peso1" value="<?=$peso1?>" min="1" required>
 
             <label for="valor2">2º valor: </label>
             <input type="number" name="valor2" id="valor2" value="<?=$valor2?>" required>
 
             <label for="peso2">2º peso: </label>
-            <input type="number" name="peso2" id="peso2" value="<?=$peso2?>" required>
+            <input type="number" name="peso2" id="peso2" value="<?=$peso2?>" min="1" required>
             
             <input type="submit" value="Calcular Médias">
         </form>
@@ -29,10 +35,6 @@
     <section>
         <h2>Cálculo das Médias</h2>
         <?php 
-            $valor1 = $_REQUEST["valor1"] ?? 0;
-            $peso1 = $_REQUEST["peso1"] ?? 1;
-            $valor2 = $_REQUEST["valor2"] ?? 0;
-            $peso2 = $_REQUEST["peso2"] ?? 1;
             $media = ($valor1 + $valor2) / 2 ;
             $mediaPonderada = ($valor1 * $peso1 + $valor2 * $peso2) / ($peso1 + $peso2);
 
